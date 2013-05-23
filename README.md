@@ -3,4 +3,10 @@
 
 Meu arquivo **.vimrc**. 
 
-Se tiver alguma sugestão/dica, por favor, me conta! [gplus.to/tarciozemel](http://gplus.to/tarciozemel)
+Dentre as opções para instalação simples de plugins, preferi o **Vundle**. Então, se quiser dar uma testada nas minhas configurações, primeiro 
+[acessa a página do Vundle](https://github.com/gmarik/vundle), instala e roda o `vim +BundleClean +BundleInstall! +qall` no terminal, conforme 
+consta nas próprias instruções do Vundle.
+
+Se tiver alguma sugestão/dica, por favor, me conta [gplus.to/tarciozemel](http://gplus.to/tarciozemel).
+
+Abraços e a gente se vê pela web!
