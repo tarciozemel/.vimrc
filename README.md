@@ -1,0 +1,4 @@
+.vimrc
+======
+
+Meu arquivo .vimrc
