@@ -17,6 +17,10 @@
         " Implements some of TextMate's snippets features in Vim
         Bundle 'msanders/snipmate.vim'
 
+        " quoting/parenthesizing made simple
+        " https://github.com/tpope/vim-surround
+        Bundle 'tpope/vim-surround'
+
         " Expanding abbreviation like Zen-coding (Emmet) 
         Bundle 'mattn/zencoding-vim'
 
@@ -32,7 +36,7 @@
 
                 " When switching a tab, focus is on the file window, not NERDTree window
                 let g:nerdtree_tabs_focus_on_files=1
-                let g:nerdtree_tabs_open_on_console_startup=1
+                " let g:nerdtree_tabs_open_on_console_startup=1
 
 
             " Ignore files on NERDTree
@@ -62,40 +66,47 @@
         " Extended session management for Vim 
         Bundle 'xolox/vim-session'
 
+            " vim-session needs this
+            Bundle 'xolox/vim-misc'
+
             " No autosave sessions
             let g:session_autosave = 'no'
 
         " vim syntax for LESS
         Bundle 'groenewege/vim-less'
 
+        " EditorConfig plugin for Vim (http://editorconfig.org)
+        " https://github.com/editorconfig/editorconfig-vim
+        Bundle 'editorconfig/editorconfig-vim'
+
         " PHP QA tools for Vim
-        Bundle 'joonty/vim-phpqa'
+        " Bundle 'joonty/vim-phpqa'
             
             " The location list opening automatically
-            let g:phpqa_open_loc = 1
+            "let g:phpqa_open_loc = 1
 
             " PHP executable
-            let g:phpqa_php_cmd = '/opt/lampp/bin/php'
+            "let g:phpqa_php_cmd = '/opt/lampp/bin/php'
 
             " PHP Code Sniffer binary
-            let g:phpqa_codesniffer_cmd = '/usr/bin/phpcs'
+            "let g:phpqa_codesniffer_cmd = '/usr/bin/phpcs'
                 
                 " Set the codesniffer args (default = '--standard=PHPCS')
                 " http://pear.php.net/manual/pt_BR/package.php.php-codesniffer.annotated-ruleset.php
-                let g:phpqa_codesniffer_args = "--standard=Zend"
+                "let g:phpqa_codesniffer_args = \"--standard=Zend"
 
                 " Run codesniffer on save (default = 1)
-                let g:phpqa_codesniffer_autorun = 1
+                "let g:phpqa_codesniffer_autorun = 1
 
             " PHP Mess Detector binary
-            let g:phpqa_messdetector_cmd     = '/usr/bin/phpmd'
+            "let g:phpqa_messdetector_cmd = '/usr/bin/phpmd'
             
                 " Ruleset XML file
                 " http://phpmd.org/documentation/index.html
-                let g:phpqa_messdetector_ruleset = '/opt/lampp/htdocs/www/phpmd/ruleset.xml'
+                "let g:phpqa_messdetector_ruleset = '/opt/lampp/htdocs/www/phpmd/ruleset.xml'
 
                 " Run messdetector on save (default = 1)
-                let g:phpqa_messdetector_autorun = 1
+                "let g:phpqa_messdetector_autorun = 1
 
             " Show code coverage on load (default = 0)
             " let g:phpqa_codecoverage_autorun = 0
@@ -107,7 +118,7 @@
             " let g:phpqa_codecoverage_showcovered = 0
 
         " PHPUnit toolkit for Vim  
-        Bundle 'joonty/vim-phpunitqf'
+        " Bundle 'joonty/vim-phpunitqf'
 
         " Generates PHP docblocks
         " https://github.com/tobyS/pdv
@@ -134,6 +145,11 @@
         " A Vim plugin which shows a git diff in the gutter (sign column)
         " https://github.com/airblade/vim-gitgutter
         Bundle 'airblade/vim-gitgutter'
+
+        " A code-completion engine for Vim
+        " SEE THE REPO FOR INSTALLATION INSTRUCTIONS!
+        " https://github.com/Valloric/YouCompleteMe
+        " Bundle 'Valloric/YouCompleteMe'
 
         " Ultimate auto-completion system for Vim
         " Bundle 'Shougo/neocomplcache'
@@ -163,13 +179,13 @@
         " https://github.com/vim-scripts/php.vim
         " Bundle 'php.vim'
 
-        " PHP omnicomplete with extra support
-        " https://github.com/vim-scripts/phpcomplete.vim
-        Bundle 'phpcomplete.vim'
-
         " MatchParen for HTML tags
         " https://github.com/gregsexton/MatchTag
         Bundle 'MatchTag'
+
+        " PHP omnicomplete with extra support
+        " https://github.com/vim-scripts/phpcomplete.vim
+        " Bundle 'phpcomplete.vim'
 
         " vimscript for gist 
         " Bundle 'gist-vim'
