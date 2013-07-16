@@ -36,7 +36,7 @@
 
                 " When switching a tab, focus is on the file window, not NERDTree window
                 let g:nerdtree_tabs_focus_on_files=1
-                " let g:nerdtree_tabs_open_on_console_startup=1
+                let g:nerdtree_tabs_open_on_console_startup=1
 
 
             " Ignore files on NERDTree
@@ -72,12 +72,20 @@
             " No autosave sessions
             let g:session_autosave = 'no'
 
+        " Vim runtime files for Haml, Sass, and SCSS
+        Bundle 'tpope/vim-haml'
+
         " vim syntax for LESS
         Bundle 'groenewege/vim-less'
 
         " EditorConfig plugin for Vim (http://editorconfig.org)
         " https://github.com/editorconfig/editorconfig-vim
         Bundle 'editorconfig/editorconfig-vim'
+
+        " Use fabpot/PHP-CS-Fixer
+        " https://github.com/stephpy/vim-php-cs-fixer
+        " http://cs.sensiolabs.org/
+        Bundle 'stephpy/vim-php-cs-fixer'
 
         " PHP QA tools for Vim
         " Bundle 'joonty/vim-phpqa'
@@ -218,6 +226,9 @@
     " undo leves
     set history=250
     set undolevels=250
+
+    " Automatic word wrapping
+    set tw=72
 
     " TABs
     set expandtab
