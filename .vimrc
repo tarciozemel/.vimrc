@@ -1,3 +1,6 @@
+" Change <Leader>
+let mapleader = ","
+
 " Exemplos de .vimrc: https://github.com/gmarik/vundle/wiki/Examples
 
 " Vundle
