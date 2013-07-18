@@ -182,6 +182,9 @@ let mapleader = ","
         " https://github.com/vim-scripts/ctrlp.vim
         Bundle 'ctrlp.vim'
 
+            " Show hidden files
+            let g:ctrlp_show_hidden = 1
+
             " Exclude files or directories
             set wildignore+=*/tmp/*,*.so,*.swp
 
