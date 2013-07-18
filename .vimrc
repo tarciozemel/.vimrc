@@ -37,6 +37,9 @@ let mapleader = ","
             " https://github.com/jistr/vim-nerdtree-tabs
             Bundle 'jistr/vim-nerdtree-tabs'
 
+                " Show hidden files 
+                let NERDTreeShowHidden=1
+
                 " When switching a tab, focus is on the file window, not NERDTree window
                 let g:nerdtree_tabs_focus_on_files=1
                 let g:nerdtree_tabs_open_on_console_startup=1
