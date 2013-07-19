@@ -17,6 +17,9 @@ let mapleader = ","
 
     " Bundles from GitHub repos
         
+        " Installs Molokai theme
+        Bundle 'tomasr/molokai'
+        
         " Implements some of TextMate's snippets features in Vim
         Bundle 'msanders/snipmate.vim'
 
