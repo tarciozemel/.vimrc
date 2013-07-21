@@ -56,6 +56,11 @@ let mapleader = ","
  
         " Vim plugin for intensely orgasmic commenting 
         Bundle 'scrooloose/nerdcommenter'
+
+            " Overwrite SCSS comment stlye
+            let g:NERDCustomDelimiters = {                                      
+                \ 'scss': { 'left': '// ', 'right': '' } 
+            \ }
         
         " The ultimate statusline/prompt utility 
         Bundle 'Lokaltog/vim-powerline'
