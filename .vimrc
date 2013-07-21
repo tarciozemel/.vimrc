@@ -245,7 +245,7 @@ let mapleader = ","
     set undolevels=250
 
     " Automatic word wrapping
-    set tw=72
+    " set tw=72
 
     " TABs
     set expandtab
@@ -278,7 +278,7 @@ let mapleader = ","
 
     " Line length marker
     " http://superuser.com/a/249856
-    set colorcolumn=72
+    set colorcolumn=120
 
     " when scrolling, keep cursor 5 lines away from screen border
     set scrolloff=5
