@@ -65,6 +65,9 @@ let mapleader = ","
         " The ultimate statusline/prompt utility 
         Bundle 'Lokaltog/vim-powerline'
         
+        " PDV needs that
+        Bundle 'SirVer/ultisnips'
+
         " :ConqueTerm <program|command> 
         Bundle 'rosenfeld/conque-term'
 
@@ -150,10 +153,6 @@ let mapleader = ","
             " https://github.com/tobyS/vmustache
             " Bundle 'tobyS/vmustache'
 
-            " PDV needs that
-            " https://github.com/SirVer/ultisnips
-            " Bundle 'SirVer/ultisnips'
-
         " Rename the current file in the vim buffer + retain relative path
         " https://github.com/danro/rename.vim
         Bundle 'danro/rename.vim'
@@ -173,9 +172,6 @@ let mapleader = ","
         " https://github.com/Valloric/YouCompleteMe
         " Bundle 'Valloric/YouCompleteMe'
 
-        " Ultimate auto-completion system for Vim
-        " Bundle 'Shougo/neocomplcache'
-    
     " Bundles from vim-scripts repos
 
         " General utility functions
