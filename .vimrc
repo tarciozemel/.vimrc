@@ -65,8 +65,12 @@ let mapleader = ","
         " The ultimate statusline/prompt utility 
         Bundle 'Lokaltog/vim-powerline'
         
-        " PDV needs that
+        " UltiSnips
         Bundle 'SirVer/ultisnips'
+
+            " UltiSnips configs
+            let g:UltiSnipsEditSplit = 'horizontal'
+            let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
         " :ConqueTerm <program|command> 
         Bundle 'rosenfeld/conque-term'
