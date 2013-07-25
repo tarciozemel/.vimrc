@@ -83,12 +83,11 @@ let mapleader = ","
             " Go to definition
             nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-        " run interactive programs inside a Vim buffer
-        " :ConqueTerm <program|command> 
-        Bundle 'rosenfeld/conque-term'
+        " Syntastic
+        " Syntax checking hacks for vim
+        Bundle 'scrooloose/syntastic'
 
-        " Pending tasks list
-        Bundle 'fisadev/FixedTaskList.vim'
+            " let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
         " Auto Pairs
         " Insert or delete brackets, parens, quotes in pair
@@ -115,49 +114,6 @@ let mapleader = ","
         " EditorConfig plugin for Vim (http://editorconfig.org)
         " https://github.com/editorconfig/editorconfig-vim
         Bundle 'editorconfig/editorconfig-vim'
-
-        " Use fabpot/PHP-CS-Fixer
-        " https://github.com/stephpy/vim-php-cs-fixer
-        " http://cs.sensiolabs.org/
-        Bundle 'stephpy/vim-php-cs-fixer'
-
-        " PHP QA tools for Vim
-        " Bundle 'joonty/vim-phpqa'
-            
-            " The location list opening automatically
-            "let g:phpqa_open_loc = 1
-
-            " PHP executable
-            "let g:phpqa_php_cmd = '/opt/lampp/bin/php'
-
-            " PHP Code Sniffer binary
-            "let g:phpqa_codesniffer_cmd = '/usr/bin/phpcs'
-                
-                " Set the codesniffer args (default = '--standard=PHPCS')
-                " http://pear.php.net/manual/pt_BR/package.php.php-codesniffer.annotated-ruleset.php
-                "let g:phpqa_codesniffer_args = \"--standard=Zend"
-
-                " Run codesniffer on save (default = 1)
-                "let g:phpqa_codesniffer_autorun = 1
-
-            " PHP Mess Detector binary
-            "let g:phpqa_messdetector_cmd = '/usr/bin/phpmd'
-            
-                " Ruleset XML file
-                " http://phpmd.org/documentation/index.html
-                "let g:phpqa_messdetector_ruleset = '/opt/lampp/htdocs/www/phpmd/ruleset.xml'
-
-                " Run messdetector on save (default = 1)
-                "let g:phpqa_messdetector_autorun = 1
-
-            " Show code coverage on load (default = 0)
-            " let g:phpqa_codecoverage_autorun = 0
-
-            " Clover code coverage XML file
-            " let g:phpqa_codecoverage_file = '/path/to/clover.xml'
-            
-            " Show markers for lines that ARE covered by tests (default = 1)
-            " let g:phpqa_codecoverage_showcovered = 0
 
         " PHPUnit toolkit for Vim  
         " Bundle 'joonty/vim-phpunitqf'
@@ -208,10 +164,6 @@ let mapleader = ","
         " https://github.com/vim-scripts/Tabular
         Bundle 'Tabular'
 
-        " PHP syntax file updated for PHP 5.3
-        " https://github.com/vim-scripts/php.vim
-        " Bundle 'php.vim'
-
         " MatchParen for HTML tags
         " https://github.com/gregsexton/MatchTag
         Bundle 'MatchTag'
@@ -221,6 +173,7 @@ let mapleader = ","
         " Bundle 'phpcomplete.vim'
 
         " vimscript for gist 
+        " https://github.com/mattn/gist-vim
         " Bundle 'gist-vim'
 
     filetype plugin on  " required!
@@ -319,8 +272,7 @@ let mapleader = ","
     " imap <C-@> <C-Space>"""
 
 " General commands
-" To create commands:
-" http://stackoverflow.com/questions/2001190/adding-a-command-to-vim
+" To create commands: http://stackoverflow.com/questions/2001190/adding-a-command-to-vim
 
     " save as sudo
     ca w!! w !sudo tee "%"
@@ -333,7 +285,7 @@ let mapleader = ","
     " Fix the backspace key
     se bs=2
 
-    " Sort
+    " Sort selected lines
     vnoremap <F9> :sort<CR>
 
     " Easier moving of code blocks
