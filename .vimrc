@@ -17,9 +17,9 @@ let mapleader = ","
 
     " Bundles from GitHub repos
         
-        " Installs Molokai theme
+        " Themes
         Bundle 'tomasr/molokai'
-        
+
         " Implements some of TextMate's snippets features in Vim
         Bundle 'msanders/snipmate.vim'
 
@@ -72,14 +72,27 @@ let mapleader = ","
             let g:UltiSnipsEditSplit = 'horizontal'
             let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
+        " A code-completion engine for Vim
+        " Needs Vim >= 7.3.584
+        " SEE INSTALL INSTRUCTIONS IN REPO
+        Bundle 'Valloric/YouCompleteMe'
+
+            " Auto closing preview window when accept offered completion string
+            let g:ycm_autoclose_preview_window_after_completion=1
+
+            " Go to definition
+            nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+        " run interactive programs inside a Vim buffer
         " :ConqueTerm <program|command> 
         Bundle 'rosenfeld/conque-term'
 
         " Pending tasks list
         Bundle 'fisadev/FixedTaskList.vim'
 
-        " Autoclose
-        Bundle 'Townk/vim-autoclose'
+        " Auto Pairs
+        " Insert or delete brackets, parens, quotes in pair
+        Bundle 'jiangmiao/auto-pairs'
 
         " Snippets files for various programming languages
         " Bundle 'honza/vim-snippets'
@@ -171,11 +184,6 @@ let mapleader = ","
         " https://github.com/airblade/vim-gitgutter
         Bundle 'airblade/vim-gitgutter'
 
-        " A code-completion engine for Vim
-        " SEE THE REPO FOR INSTALLATION INSTRUCTIONS!
-        " https://github.com/Valloric/YouCompleteMe
-        " Bundle 'Valloric/YouCompleteMe'
-
     " Bundles from vim-scripts repos
 
         " General utility functions
@@ -236,6 +244,7 @@ let mapleader = ","
 
     " vim whit 256 colors
     set t_Co=256
+    syntax enable
 
     " molokai theme
     colorscheme molokai
@@ -302,12 +311,12 @@ let mapleader = ","
 
     " Ctrl+Space for omni and keyword completion in vim
     " http://stackoverflow.com/a/510571/922143
-    inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-    \ "\<lt>C-n>" :
-    \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-    \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-    \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-    imap <C-@> <C-Space>
+    " inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+    " \ \"\<lt>C-n>" :
+    " \ \"\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+    " \ \"\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+    " \ \"\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+    " imap <C-@> <C-Space>"""
 
 " General commands
 " To create commands:
@@ -321,6 +330,9 @@ let mapleader = ","
 
 " Maps/remaps
     
+    " Fix the backspace key
+    se bs=2
+
     " Sort
     vnoremap <F9> :sort<CR>
 
