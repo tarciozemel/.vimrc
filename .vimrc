@@ -72,20 +72,16 @@ let mapleader = ","
             let g:UltiSnipsEditSplit = 'horizontal'
             let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
-        " A code-completion engine for Vim
-        " Needs Vim >= 7.3.584
-        " SEE INSTALL INSTRUCTIONS IN REPO
-        Bundle 'Valloric/YouCompleteMe'
-
-            " Auto closing preview window when accept offered completion string
-            let g:ycm_autoclose_preview_window_after_completion=1
-
-            " Go to definition
-            nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
         " Syntastic
-        " Syntax checking hacks for vim
+        " Syntax checking hacks for Vim
         Bundle 'scrooloose/syntastic'
+            
+            " :ErrorsClose to close Errors Window
+            command ErrorsClose lclose
+
+            " Jump between errors in Error Window (which appears with :Errors)
+            nnoremap <silent> <C-[><C-[> :lprev<CR>
+            nnoremap <silent> <C-]><C-]> :lnext<CR>
 
             " let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 
