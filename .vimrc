@@ -72,6 +72,22 @@ let mapleader = ","
             let g:UltiSnipsEditSplit = 'horizontal'
             let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
+        " Eclim
+        " The power of Eclipse in your favorite editor
+        " http://eclim.org/
+
+            filetype plugin indent on
+            let g:EclimCompletionMethod='omnifunc'
+            let g:EclimPhpSearchSingleResult='tabnew'
+            let g:EclimPhpValidate=0
+
+        " YouCompleteMe
+        " A code-completion engine for Vim
+        Bundle 'Valloric/YouCompleteMe'
+
+            " Auto closing preview window when accept offered completion string
+            let g:ycm_autoclose_preview_window_after_completion=1
+
         " Syntastic
         " Syntax checking hacks for Vim
         Bundle 'scrooloose/syntastic'
@@ -164,10 +180,6 @@ let mapleader = ","
         " https://github.com/gregsexton/MatchTag
         Bundle 'MatchTag'
 
-        " PHP omnicomplete with extra support
-        " https://github.com/vim-scripts/phpcomplete.vim
-        " Bundle 'phpcomplete.vim'
-
         " vimscript for gist 
         " https://github.com/mattn/gist-vim
         " Bundle 'gist-vim'
@@ -211,6 +223,9 @@ let mapleader = ","
     set softtabstop=4
     set shiftwidth=4
 
+    " line numbers
+    set nu
+
     " identing
     set autoindent
 
@@ -231,9 +246,6 @@ let mapleader = ","
         " highlighted search results; press Space to turn off highlighting
         :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
  
-    " line numbers
-    set nu
-
     " Line length marker
     " http://superuser.com/a/249856
     set colorcolumn=120
@@ -257,6 +269,10 @@ let mapleader = ","
     " Store swap files in fixed location, not current directory
     " http://stackoverflow.com/a/4331812/922143
     set dir=~/.vim/swap//,/tmp//,.
+
+    " Ctrl+o to autocomplete according the file type
+    setlocal omnifunc=syntaxcomplete#Complete
+    set cot+=menuone
 
     " Ctrl+Space for omni and keyword completion in vim
     " http://stackoverflow.com/a/510571/922143
