@@ -20,9 +20,6 @@ let mapleader = ","
         " Themes
         Bundle 'tomasr/molokai'
 
-        " Implements some of TextMate's snippets features in Vim
-        Bundle 'msanders/snipmate.vim'
-
         " quoting/parenthesizing made simple
         " https://github.com/tpope/vim-surround
         Bundle 'tpope/vim-surround'
@@ -47,7 +44,6 @@ let mapleader = ","
                 let g:nerdtree_tabs_focus_on_files=1
                 let g:nerdtree_tabs_open_on_console_startup=1
 
-
             " Ignore files on NERDTree
             " let NERDTreeIgnore = ['\.pyc$', '\.pyo$'] 
   
@@ -69,17 +65,23 @@ let mapleader = ","
         Bundle 'SirVer/ultisnips'
 
             " UltiSnips configs
-            let g:UltiSnipsEditSplit = 'horizontal'
+            let g:UltiSnipsEditSplit   = 'horizontal'
             let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+
+            " Mapping UltiSnips to ctrl-j/k to not conflit with YouCompleteMe
+            " https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-13713374
+            let g:UltiSnipsExpandTrigger       = "<c-j>"
+            let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+            let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
         " Eclim
         " The power of Eclipse in your favorite editor
         " http://eclim.org/
 
             filetype plugin indent on
-            let g:EclimCompletionMethod='omnifunc'
-            let g:EclimPhpSearchSingleResult='tabnew'
-            let g:EclimPhpValidate=0
+            let g:EclimCompletionMethod      = 'omnifunc'
+            let g:EclimPhpSearchSingleResult = 'tabnew'
+            let g:EclimPhpValidate           = 0
 
         " YouCompleteMe
         " A code-completion engine for Vim
@@ -131,15 +133,13 @@ let mapleader = ","
         " Bundle 'joonty/vim-phpunitqf'
 
         " Generates PHP docblocks
-        " https://github.com/tobyS/pdv
-        " Bundle 'tobyS/pdv'
-
-            " PDV needs that
-            " https://github.com/tobyS/vmustache
-            " Bundle 'tobyS/vmustache'
+        " Good integratino with SirVer/ultisnips (already defined above)
+        "Bundle 'tobyS/pdv'
+        
+            "let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+            "nnoremap <buffer> <C-d> :call pdv#DocumentWithSnip()<CR>
 
         " Rename the current file in the vim buffer + retain relative path
-        " https://github.com/danro/rename.vim
         Bundle 'danro/rename.vim'
 
         " Display the indention levels with thin vertical lines
@@ -289,8 +289,11 @@ let mapleader = ","
     " save as sudo
     ca w!! w !sudo tee "%"
 
-    " remove caracteres ocultos '^M' de docs do Janelas®
+    " remove hidden characters '^M' from Windows® docs
     command AdjustEndOfLine execute '%s/\r\(\n\)/\1/g' 
+
+    " Tabs to spaces
+    command Tabs2Spaces execute ':1,$s/\t/  /g'
 
 " Maps/remaps
     
