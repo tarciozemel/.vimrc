@@ -24,8 +24,8 @@ let mapleader = ","
         " https://github.com/tpope/vim-surround
         Bundle 'tpope/vim-surround'
 
-        " Expanding abbreviation like Zen-coding (Emmet) 
-        Bundle 'mattn/zencoding-vim'
+        " Emmet for vim
+        Bundle 'mattn/emmet-vim'
 
         " Better file browser
         Bundle 'scrooloose/nerdtree'
@@ -123,7 +123,7 @@ let mapleader = ","
         Bundle 'tpope/vim-haml'
 
         " vim syntax for LESS
-        Bundle 'groenewege/vim-less'
+        "Bundle 'groenewege/vim-less'
 
         " EditorConfig plugin for Vim (http://editorconfig.org)
         " https://github.com/editorconfig/editorconfig-vim
