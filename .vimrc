@@ -27,6 +27,11 @@ let mapleader = ","
         " Emmet for vim
         Bundle 'mattn/emmet-vim'
 
+        " Emmet LiveStyle for Vim
+        " https://github.com/mattn/livestyle-vim
+        " In Ubuntu, it's possible install golang with: sudo apt-get install golang-go
+        Bundle 'mattn/livestyle-vim'
+
         " Better file browser
         Bundle 'scrooloose/nerdtree'
         
@@ -134,10 +139,13 @@ let mapleader = ","
 
         " Generates PHP docblocks
         " Good integratino with SirVer/ultisnips (already defined above)
-        "Bundle 'tobyS/pdv'
+        Bundle 'tobyS/pdv'
         
-            "let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-            "nnoremap <buffer> <C-d> :call pdv#DocumentWithSnip()<CR>
+            " Vmustache template engine, prerequisite for PDV
+            Bundle "tobyS/vmustache"
+
+            let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+            nnoremap <buffer> <C-d> :call pdv#DocumentWithSnip()<CR>
 
         " Rename the current file in the vim buffer + retain relative path
         Bundle 'danro/rename.vim'
