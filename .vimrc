@@ -44,7 +44,7 @@ let mapleader = ","
 
                 " When switching a tab, focus is on the file window, not NERDTree window
                 let g:nerdtree_tabs_focus_on_files=1
-                "let g:nerdtree_tabs_open_on_console_startup=1
+                let g:nerdtree_tabs_open_on_console_startup=1
 
             " Ignore files on NERDTree
             let NERDTreeIgnore = ['\.git/', 'node_modules/', '\.pyc$', '\.pyo$'] 
@@ -65,7 +65,7 @@ let mapleader = ","
 
             let g:airline_powerline_fonts                 = 1
 
-            let g:airline_symbols = {}
+            let g:airline_symbols        = {}
             let g:airline_symbols.branch = ''
             
             let g:airline_section_b                       = '%{fugitive#head()}'
@@ -82,7 +82,7 @@ let mapleader = ","
         Bundle 'Valloric/YouCompleteMe'
 
             " Auto closing preview window when accept offered completion string
-            let g:ycm_autoclose_preview_window_after_completiona = 1
+            let g:ycm_autoclose_preview_window_after_completion = 1
 
         " UltiSnips
         " An implementation of TextMates Snippets for the Vim Text Editor
@@ -110,21 +110,15 @@ let mapleader = ","
         " Syntax checking hacks for Vim
         Bundle 'scrooloose/syntastic'
 
-            "let g:syntastic_php_php_exe='/opt/lampp/bin/php'
+            let g:syntastic_php_php_exe    = '/usr/bin/php'
 
             let g:syntastic_check_on_open  = 1
             let g:syntastic_error_symbol   = '✗'
             let g:syntastic_warning_symbol = '⚠'
 
-            "let g:syntastic_error_symbol = '✗✗'
-            "let g:syntastic_style_error_symbol = '✠✠'
-            "let g:syntastic_warning_symbol = '∆∆'
-            "let g:syntastic_style_warning_symbol = '≈≈'
-
-            let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-            "let g:syntastic_quiet_warnings=1
+            let g:syntastic_php_checkers   = ['php', 'phpcs', 'phpmd']
+            let g:syntastic_quiet_warnings = 1
             "let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
-            "let g:syntastic_debug = 1
 
             " :ErrorsClose to close Errors Window
             command ErrorsClose lclose
@@ -136,15 +130,6 @@ let mapleader = ","
         " Auto Pairs
         " Insert or delete brackets, parens, quotes in pair
         Bundle 'jiangmiao/auto-pairs'
-
-        " Extended session management for Vim 
-        "Bundle 'xolox/vim-session'
-
-            " vim-session needs this
-            "Bundle 'xolox/vim-misc'
-
-            " No autosave sessions
-            "let g:session_autosave = 'no'
 
         " Vim runtime files for Haml, Sass, and SCSS
         Bundle 'tpope/vim-haml'
@@ -165,9 +150,6 @@ let mapleader = ","
             let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
             nnoremap <buffer> <C-d> :call pdv#DocumentWithSnip()<CR>
 
-        " Rename the current file in the vim buffer + retain relative path
-        "Bundle 'danro/rename.vim'
-
         " Visually displaying indent levels in code
         Bundle 'nathanaelkane/vim-indent-guides'
 
@@ -179,10 +161,6 @@ let mapleader = ","
             let g:indent_guides_auto_colors = 0
             autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234
             autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
-
-        " Vertical cursor highlight
-        " http://vim.1045645.n5.nabble.com/Fwd-Indentation-Vertical-Lines-td1178645.html#d1278231853000-961
-        " set cuc cul 
 
         " A Vim plugin which shows a git diff in the gutter (sign column)
         Bundle 'airblade/vim-gitgutter'
@@ -211,14 +189,6 @@ let mapleader = ","
         " https://github.com/vim-scripts/Tabular
         Bundle 'Tabular'
 
-        " MatchParent for HTML tags
-        " https://github.com/gregsexton/MatchTag
-        "Bundle 'MatchTag'
-
-        " vimscript for gist 
-        " https://github.com/mattn/gist-vim
-        " Bundle 'gist-vim'
-
     filetype plugin on  " required!
  
     "
@@ -237,6 +207,9 @@ let mapleader = ","
 
 
 " General configs 
+
+    " UTF-8 encoding
+    set encoding=utf-8
 
     " vim whit 256 colors
     set t_Co=256
@@ -289,7 +262,7 @@ let mapleader = ","
     set colorcolumn=80
 
     " Highlight actual line
-    set cursorline
+    "set cursorline
 
     " when scrolling, keep cursor 5 lines away from screen border
     set scrolloff=5
