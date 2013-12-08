@@ -20,6 +20,12 @@ let mapleader = ","
         " Themes
         Bundle 'tomasr/molokai'
 
+        " Tag file manager for Vim
+        " Need to install Exuberant Ctags (sudo apt-get install exuberant-ctags)
+        Bundle 'joonty/vim-taggatron'
+
+            let g:tagcommands = { 'php': { 'tagfile' : '.php.tags', 'args' : '-R' } }
+
         " quoting/parenthesizing made simple
         Bundle 'tpope/vim-surround'
 
@@ -75,7 +81,7 @@ let mapleader = ","
             Bundle 'tpope/vim-fugitive'
 
                 " If Fugitive loaded, show branch in statusline
-                "set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+                set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
         
         " YouCompleteMe
         " A code-completion engine for Vim
@@ -108,24 +114,31 @@ let mapleader = ","
 
         " Syntastic
         " Syntax checking hacks for Vim
-        Bundle 'scrooloose/syntastic'
+        "Bundle 'scrooloose/syntastic'
 
-            let g:syntastic_php_php_exe    = '/usr/bin/php'
+            "let g:syntastic_php_php_exe    = '/usr/bin/php'
 
-            let g:syntastic_check_on_open  = 1
-            let g:syntastic_error_symbol   = '✗'
-            let g:syntastic_warning_symbol = '⚠'
+            "let g:syntastic_check_on_open  = 1
+            "let g:syntastic_error_symbol   = '✗'
+            "let g:syntastic_warning_symbol = '⚠'
 
-            let g:syntastic_php_checkers   = ['php', 'phpcs', 'phpmd']
-            let g:syntastic_quiet_warnings = 1
-            "let g:syntastic_ignore_files=['^/usr/include/', '\c\.h$']
+            "let g:syntastic_php_checkers   = ['php', 'phpcs', 'phpmd']
+            "let g:syntastic_quiet_warnings = 1
 
             " :ErrorsClose to close Errors Window
-            command ErrorsClose lclose
+            "command ErrorsClose lclose
 
             " Jump between errors in Error Window (which appears with :Errors)
-            nnoremap <silent> <C-[><C-[> :lprev<CR>
-            nnoremap <silent> <C-]><C-]> :lnext<CR>
+            "nnoremap <silent> <C-[><C-[> :lprev<CR>
+            "nnoremap <silent> <C-]><C-]> :lnext<CR>
+
+        " PHP QA
+        " Using this while Syntastic not working
+        " https://github.com/scrooloose/syntastic/issues/780
+        Bundle 'joonty/vim-phpqa'
+
+            let g:phpqa_codesniffer_args     = "--standard=PSR2 --ignore=*/node_modules/*"
+            let g:phpqa_messdetector_ruleset = "cleancode,codesize,design,unusedcode"
 
         " Auto Pairs
         " Insert or delete brackets, parens, quotes in pair
