@@ -1,228 +1,11 @@
-" Change <Leader>
-let mapleader = ","
-
 " .vimrc examples: https://github.com/gmarik/vundle/wiki/Examples
-
-" Vundle
-" vim +BundleClean +BundleInstall! +qall
-
-    set nocompatible    " be iMproved
-    filetype off        " required!
-
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
-
-    " required! 
-    Bundle 'gmarik/vundle'
-
-    " Bundles from GitHub repos
-        
-        " Themes
-        Bundle 'tomasr/molokai'
-
-        " Tag file manager for Vim
-        " Need to install Exuberant Ctags (sudo apt-get install exuberant-ctags)
-        Bundle 'joonty/vim-taggatron'
-
-            let g:tagcommands = { 'php': { 'tagfile' : '.php.tags', 'args' : '-R' } }
-
-        " quoting/parenthesizing made simple
-        Bundle 'tpope/vim-surround'
-
-        " Emmet for vim
-        Bundle 'mattn/emmet-vim'
-
-        " Emmet LiveStyle for Vim
-        " In Ubuntu, it's possible install golang with: sudo apt-get install golang-go
-        "Bundle 'mattn/livestyle-vim'
-
-        " Better file browser
-        Bundle 'scrooloose/nerdtree'
-        
-            " NERDTree toggle
-            map <F3> :NERDTreeToggle<CR>
-            
-            " NERDTree and tabs together in Vim, painlessly
-            Bundle 'jistr/vim-nerdtree-tabs'
-
-                " Show hidden files 
-                let NERDTreeShowHidden=1
-
-                " When switching a tab, focus is on the file window, not NERDTree window
-                let g:nerdtree_tabs_focus_on_files=1
-                let g:nerdtree_tabs_open_on_console_startup=1
-
-            " Ignore files on NERDTree
-            let NERDTreeIgnore = ['\.git/', 'node_modules/', '\.pyc$', '\.pyo$'] 
-  
-        " Vim plugin for intensely orgasmic commenting 
-        Bundle 'scrooloose/nerdcommenter'
-
-            " Overwrite SCSS comment stlye to '// '
-            let g:NERDCustomDelimiters = {
-                \ 'scss': { 'left': '// ', 'right': '' }
-            \ }
-
-        " True Sublime Text style multiple selections for Vim 
-        Bundle 'terryma/vim-multiple-cursors'
-        
-        " Lean & mean statusline for vim that's light as air
-        Bundle 'bling/vim-airline'
-
-            let g:airline_powerline_fonts                 = 1
-
-            let g:airline_symbols        = {}
-            let g:airline_symbols.branch = ''
-            
-            let g:airline_section_b                       = '%{fugitive#head()}'
-            let g:airline#extensions#branch#empty_message = ''
-
-            " A Git wrapper so awesome (to show Git branch in Airline)
-            Bundle 'tpope/vim-fugitive'
-
-                " If Fugitive loaded, show branch in statusline
-                set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-        
-        " YouCompleteMe
-        " A code-completion engine for Vim
-        Bundle 'Valloric/YouCompleteMe'
-
-            " Auto closing preview window when accept offered completion string
-            let g:ycm_autoclose_preview_window_after_completion = 1
-
-        " UltiSnips
-        " An implementation of TextMates Snippets for the Vim Text Editor
-        Bundle 'SirVer/ultisnips'
-
-            let g:UltiSnipsEditSplit   = 'horizontal'
-            let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
-
-            " Mapping UltiSnips to ctrl-j/k to not conflit with YouCompleteMe
-            " https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-13713374
-            let g:UltiSnipsExpandTrigger       = "<c-j>"
-            let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
-            let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-
-        " Eclim
-        " The power of Eclipse in your favorite editor
-        " http://eclim.org/
-
-            "filetype plugin indent on
-            "let g:EclimCompletionMethod      = 'omnifunc'
-            "let g:EclimPhpSearchSingleResult = 'tabnew'
-            "let g:EclimPhpValidate           = 0
-
-        " Syntastic
-        " Syntax checking hacks for Vim
-        "Bundle 'scrooloose/syntastic'
-
-            "let g:syntastic_php_php_exe    = '/usr/bin/php'
-
-            "let g:syntastic_check_on_open  = 1
-            "let g:syntastic_error_symbol   = '✗'
-            "let g:syntastic_warning_symbol = '⚠'
-
-            "let g:syntastic_php_checkers   = ['php', 'phpcs', 'phpmd']
-            "let g:syntastic_quiet_warnings = 1
-
-            " :ErrorsClose to close Errors Window
-            "command ErrorsClose lclose
-
-            " Jump between errors in Error Window (which appears with :Errors)
-            "nnoremap <silent> <C-[><C-[> :lprev<CR>
-            "nnoremap <silent> <C-]><C-]> :lnext<CR>
-
-        " PHP QA
-        " Using this while Syntastic not working
-        " https://github.com/scrooloose/syntastic/issues/780
-        Bundle 'joonty/vim-phpqa'
-
-            let g:phpqa_codesniffer_args     = "--standard=PSR2 --ignore=*/node_modules/*"
-            let g:phpqa_messdetector_ruleset = "cleancode,codesize,design,unusedcode"
-
-        " Auto Pairs
-        " Insert or delete brackets, parens, quotes in pair
-        Bundle 'jiangmiao/auto-pairs'
-
-        " Vim runtime files for Haml, Sass, and SCSS
-        Bundle 'tpope/vim-haml'
-
-        " vim syntax for LESS
-        "Bundle 'groenewege/vim-less'
-
-        " EditorConfig plugin for Vim (http://editorconfig.org)
-        Bundle 'editorconfig/editorconfig-vim'
-
-        " Generates PHP docblocks
-        " Good integratino with SirVer/ultisnips (already defined above)
-        Bundle 'tobyS/pdv'
-        
-            " Vmustache template engine, prerequisite for PDV
-            Bundle "tobyS/vmustache"
-
-            let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-            nnoremap <buffer> <C-d> :call pdv#DocumentWithSnip()<CR>
-
-        " Visually displaying indent levels in code
-        Bundle 'nathanaelkane/vim-indent-guides'
-
-            let g:indent_guides_enable_on_vim_startup = 1
-            let g:indent_guides_guide_size = 1
-            let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-
-            " http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
-            let g:indent_guides_auto_colors = 0
-            autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234
-            autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
-
-        " A Vim plugin which shows a git diff in the gutter (sign column)
-        Bundle 'airblade/vim-gitgutter'
-
-    " Bundles from vim-scripts repos
-
-        " General utility functions
-        " https://github.com/vim-scripts/genutils
-        Bundle 'genutils' 
-
-        " Search results counter
-        " https://github.com/vim-scripts/IndexedSearch
-        Bundle 'IndexedSearch'
-
-        " Fuzzy file, buffer, mru, tag, ... finder for Vim
-        " https://github.com/vim-scripts/ctrlp.vim
-        Bundle 'ctrlp.vim'
-
-            " Show hidden files
-            let g:ctrlp_show_hidden = 1
-
-            " Exclude files or directories
-            set wildignore+=*/tmp/*,*/.git/*,*/node_modules/*,*.so,*.swp
-
-        " filtering and alignment
-        " https://github.com/vim-scripts/Tabular
-        Bundle 'Tabular'
-
-    filetype plugin on  " required!
- 
-    "
-    " Brief help
-    " :BundleList          - list configured bundles
-    " :BundleInstall(!)    - install(update) bundles
-    " :BundleSearch(!) foo - search(or refresh cache first) for foo
-    " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-    "
-    " see :h vundle for more details or wiki for FAQ
-    " NOTE : comments after Bundle command are not allowed.
-    "
-
-
-
-
-
 " General configs 
 
     " UTF-8 encoding
     set encoding=utf-8
+
+    " Change <Leader>
+    let mapleader = ","
 
     " vim whit 256 colors
     set t_Co=256
@@ -299,6 +82,9 @@ let mapleader = ","
         autocmd InsertEnter * let w:last_fdm=&foldmethod | setlocal foldmethod=manual
         autocmd InsertLeave * let &l:foldmethod=w:last_fdm
 
+    " Vertical splits open to the right
+    set splitright
+
     " Store swap files in fixed location, not current directory
     " http://stackoverflow.com/a/4331812/922143
     set dir=~/.vim/swap//,/tmp//,.
@@ -307,37 +93,258 @@ let mapleader = ","
     setlocal omnifunc=syntaxcomplete#Complete
     set cot+=menuone
 
-" General commands
-" To create commands: http://stackoverflow.com/questions/2001190/adding-a-command-to-vim
+    " General commands
+    " To create commands: http://stackoverflow.com/questions/2001190/adding-a-command-to-vim
 
-    " save as sudo
-    ca w!! w !sudo tee "%"
+        " save as sudo
+        ca w!! w !sudo tee "%"
 
-    " remove hidden characters '^M' from Windows® docs
-    command AdjustEndOfLine execute '%s/\r\(\n\)/\1/g' 
+        " remove hidden characters '^M' from Windows® docs
+        command AdjustEndOfLine execute '%s/\r\(\n\)/\1/g' 
 
-    " Tabs to spaces
-    command Tabs2Spaces execute ':1,$s/\t/  /g'
+        " Tabs to spaces
+        command Tabs2Spaces execute ':1,$s/\t/  /g'
 
-" Maps/remaps
-    
-    " Fix the backspace key
-    se bs=2
+    " Maps/remaps
+        
+        " Fix the backspace key
+        se bs=2
 
-    " Sort selected lines
-    vnoremap <F9> :sort<CR>
+        " Sort selected lines
+        vnoremap <F9> :sort<CR>
 
-    " Easier moving of code blocks
-    vnoremap < <gv
-    vnoremap > >gv
+        " Easier moving of code blocks
+        vnoremap < <gv
+        vnoremap > >gv
 
-" Abbreviations
+        " Control-] pop open a window and show the tag there
+        nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
 
-    cab W! w!
-    cab Q! q!
-    cab Wq wq
-    cab Wa wa
-    cab wQ wq
-    cab WQ wq
-    cab W w
-    cab Q q
+    " Abbreviations
+
+        cab W! w!
+        cab Q! q!
+        cab Wq wq
+        cab Wa wa
+        cab wQ wq
+        cab WQ wq
+        cab W w
+        cab Q q
+
+" Vundle
+" vim +BundleClean +BundleInstall! +qall (in CLI) - Install configured bundles
+"
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE : comments after Bundle command are not allowed.
+
+    set nocompatible    " be iMproved
+    filetype off        " required!
+
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+
+    " required! 
+    Bundle 'gmarik/vundle'
+
+    " Bundles from GitHub repos
+        
+        " Themes
+        Bundle 'tomasr/molokai'
+
+        " Tag file manager for Vim
+        " Need to install Exuberant Ctags (sudo apt-get install exuberant-ctags)
+        Bundle 'joonty/vim-taggatron'
+
+            let g:tagcommands = {
+                \"php" : { "tagfile" : ".php.tags", "args" : "-R" },
+                \"javascript" : { "tagfile" : ".js.tags", "args" : "-R" }
+            \}
+
+        " quoting/parenthesizing made simple
+        Bundle 'tpope/vim-surround'
+
+        " Emmet for vim
+        Bundle 'mattn/emmet-vim'
+
+        " Emmet LiveStyle for Vim
+        " (in apt-get based OSs: sudo apt-get install golang-go)
+        "Bundle 'mattn/livestyle-vim'
+
+        " Vim-CtrlSpace
+        " Vim Workspace Controller
+        Bundle 'szw/vim-ctrlspace'
+
+            let g:airline_exclude_preview = 1
+            let g:ctrlspace_ignored_files = '\v(tmp|temp|node_modules|components|wp-admin|wp-includes)[\/]'
+
+            hi CtrlSpaceSelected term=reverse ctermfg=187  ctermbg=23  cterm=bold
+            hi CtrlSpaceNormal   term=NONE    ctermfg=244  ctermbg=232 cterm=NONE
+            hi CtrlSpaceFound    ctermfg=220  ctermbg=NONE cterm=bold
+
+        " Better file browser
+        Bundle 'scrooloose/nerdtree'
+        
+            " NERDTree toggle
+            map <F3> :NERDTreeToggle<CR>
+
+            " Ignore files on NERDTree
+            let NERDTreeIgnore = ['\.git/', 'node_modules/', '\.pyc$', '\.pyo$', '\.tags$'] 
+            
+            " NERDTree and tabs together in Vim, painlessly
+            Bundle 'jistr/vim-nerdtree-tabs'
+
+                let NERDTreeShowHidden=1
+                let g:nerdtree_tabs_focus_on_files=1
+  
+        " Vim plugin for intensely orgasmic commenting 
+        Bundle 'scrooloose/nerdcommenter'
+
+            " Overwrite SCSS comment stlye to '// '
+            let g:NERDCustomDelimiters = {
+                \ 'scss': { 'left': '// ', 'right': '' }
+            \ }
+
+        " True Sublime Text style multiple selections for Vim 
+        Bundle 'terryma/vim-multiple-cursors'
+        
+        " Lean & mean statusline for vim that's light as air
+        Bundle 'bling/vim-airline'
+
+            let g:airline_powerline_fonts                 = 1
+
+            let g:airline_symbols        = {}
+            let g:airline_symbols.branch = ''
+            
+            let g:airline_section_b                       = '%{fugitive#head()}'
+            let g:airline#extensions#branch#empty_message = ''
+
+        " A Git wrapper so awesome
+        Bundle 'tpope/vim-fugitive'
+
+            " If Fugitive loaded, show branch in statusline
+            set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+
+            " Auto-clean fugitive buffers
+            autocmd BufReadPost fugitive://* set bufhidden=delete
+
+        " Pairs of handy bracket mappings
+        Bundle 'tpope/vim-unimpaired'
+        
+        " YouCompleteMe
+        " A code-completion engine for Vim
+        Bundle 'Valloric/YouCompleteMe'
+
+            " Auto closing preview window when accept offered completion string
+            let g:ycm_autoclose_preview_window_after_completion = 1
+
+        " UltiSnips
+        " An implementation of TextMates Snippets for the Vim Text Editor
+        Bundle 'SirVer/ultisnips'
+
+            let g:UltiSnipsEditSplit   = 'horizontal'
+            let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+
+            " Mapping UltiSnips to ctrl-j/k to not conflit with YouCompleteMe
+            " https://github.com/Valloric/YouCompleteMe/issues/36#issuecomment-13713374
+            let g:UltiSnipsExpandTrigger       = "<c-j>"
+            let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+            let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+        " Eclim
+        " The power of Eclipse in your favorite editor
+        " http://eclim.org/
+
+            filetype plugin indent on
+            let g:EclimCompletionMethod      = 'omnifunc'
+            let g:EclimPhpSearchSingleResult = 'tabnew'
+            let g:EclimPhpValidate           = 0
+
+        " Syntastic
+        " Syntax checking hacks for Vim
+        "Bundle 'scrooloose/syntastic'
+
+            "let g:syntastic_php_php_exe    = '/usr/bin/php'
+
+            "let g:syntastic_check_on_open  = 1
+            "let g:syntastic_error_symbol   = '✗'
+            "let g:syntastic_warning_symbol = '⚠'
+
+            "let g:syntastic_php_checkers   = ['php', 'phpcs', 'phpmd']
+            "let g:syntastic_quiet_warnings = 1
+
+            " :ErrorsClose to close Errors Window
+            "command ErrorsClose lclose
+
+            " Jump between errors in Error Window (which appears with :Errors)
+            "nnoremap <silent> <C-[><C-[> :lprev<CR>
+            "nnoremap <silent> <C-]><C-]> :lnext<CR>
+
+        " PHP QA
+        " Using this while Syntastic not working
+        " https://github.com/scrooloose/syntastic/issues/780
+        Bundle 'joonty/vim-phpqa'
+
+            let g:phpqa_open_loc = 0 
+            command! PhpqaErrorsWindow lop
+
+            let g:phpqa_codesniffer_args     = "--standard=PSR2 --ignore=*/node_modules/*"
+            let g:phpqa_messdetector_ruleset = "cleancode,codesize,design,unusedcode"
+
+        " Auto Pairs
+        " Insert or delete brackets, parens, quotes in pair
+        Bundle 'jiangmiao/auto-pairs'
+
+        " Vim runtime files for Haml, Sass, and SCSS
+        Bundle 'tpope/vim-haml'
+
+        " vim syntax for LESS
+        "Bundle 'groenewege/vim-less'
+
+        " EditorConfig plugin for Vim (http://editorconfig.org)
+        Bundle 'editorconfig/editorconfig-vim'
+
+        " Generates PHP docblocks
+        " Good integratino with SirVer/ultisnips (already defined above)
+        Bundle 'tobyS/pdv'
+        
+            " Vmustache template engine, prerequisite for PDV
+            Bundle "tobyS/vmustache"
+
+            let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+            nnoremap <buffer> <C-d> :call pdv#DocumentWithSnip()<CR>
+
+        " Visually displaying indent levels in code
+        Bundle 'nathanaelkane/vim-indent-guides'
+
+            let g:indent_guides_enable_on_vim_startup = 1
+            let g:indent_guides_guide_size = 1
+            let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+
+            " http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
+            let g:indent_guides_auto_colors = 0
+            autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234
+            autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
+
+        " A Vim plugin which shows a git diff in the gutter (sign column)
+        Bundle 'airblade/vim-gitgutter'
+
+    " Bundles from vim-scripts repos
+
+        " General utility functions
+        " https://github.com/vim-scripts/genutils
+        Bundle 'genutils' 
+
+        " Search results counter
+        " https://github.com/vim-scripts/IndexedSearch
+        Bundle 'IndexedSearch'
+
+        " filtering and alignment
+        " https://github.com/vim-scripts/Tabular
+        Bundle 'Tabular'
+
+    filetype plugin on  " required!
