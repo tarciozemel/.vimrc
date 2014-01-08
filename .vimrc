@@ -266,6 +266,24 @@
             let g:EclimPhpSearchSingleResult = 'tabnew'
             let g:EclimPhpValidate           = 0
 
+        " phpcomplete.vim
+        " Improved PHP omnicompletion
+        Bundle 'shawncplus/phpcomplete.vim'
+
+            let g:phpcomplete_parse_docblock_comments = 1
+
+        " vim-php-namespace
+        " Types 'use' statements for you
+        Bundle 'arnaud-lb/vim-php-namespace'
+
+            " hitting <leader>u  will import the class under the cursor
+            inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+            noremap <Leader>u :call PhpInsertUse()<CR>
+
+            " <leader>e  will expand the class name to a fully qualified name
+            inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
+            noremap <Leader>e :call PhpExpandClass()<CR>
+
         " PHP QA
         " Using this while Syntastic not working
         " https://github.com/scrooloose/syntastic/issues/780
