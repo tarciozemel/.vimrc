@@ -10,6 +10,9 @@
     " vim whit 256 colors
     set t_Co=256
     syntax enable
+    
+    " Allows hidden buffers
+    set hidden
 
     " molokai theme
     colorscheme molokai
@@ -161,8 +164,7 @@
         Bundle 'joonty/vim-taggatron'
 
             let g:tagcommands = {
-                \"php" : { "tagfile" : ".php.tags", "args" : "-R" },
-                \"javascript" : { "tagfile" : ".js.tags", "args" : "-R" }
+                \"php" : { "tagfile" : ".php.tags", "args" : "-R" }
             \}
 
         " quoting/parenthesizing made simple
@@ -215,7 +217,7 @@
         " Lean & mean statusline for vim that's light as air
         Bundle 'bling/vim-airline'
 
-            let g:airline_powerline_fonts                 = 1
+            let g:airline_powerline_fonts = 1
 
             let g:airline_symbols        = {}
             let g:airline_symbols.branch = ''
@@ -264,26 +266,6 @@
             let g:EclimPhpSearchSingleResult = 'tabnew'
             let g:EclimPhpValidate           = 0
 
-        " Syntastic
-        " Syntax checking hacks for Vim
-        "Bundle 'scrooloose/syntastic'
-
-            "let g:syntastic_php_php_exe    = '/usr/bin/php'
-
-            "let g:syntastic_check_on_open  = 1
-            "let g:syntastic_error_symbol   = '✗'
-            "let g:syntastic_warning_symbol = '⚠'
-
-            "let g:syntastic_php_checkers   = ['php', 'phpcs', 'phpmd']
-            "let g:syntastic_quiet_warnings = 1
-
-            " :ErrorsClose to close Errors Window
-            "command ErrorsClose lclose
-
-            " Jump between errors in Error Window (which appears with :Errors)
-            "nnoremap <silent> <C-[><C-[> :lprev<CR>
-            "nnoremap <silent> <C-]><C-]> :lnext<CR>
-
         " PHP QA
         " Using this while Syntastic not working
         " https://github.com/scrooloose/syntastic/issues/780
@@ -293,7 +275,7 @@
             command! PhpqaErrorsWindow lop
 
             let g:phpqa_codesniffer_args     = "--standard=PSR2 --ignore=*/node_modules/*"
-            let g:phpqa_messdetector_ruleset = "cleancode,codesize,design,unusedcode"
+            "let g:phpqa_messdetector_ruleset = "cleancode,codesize,design,unusedcode"
 
         " Auto Pairs
         " Insert or delete brackets, parens, quotes in pair
@@ -307,16 +289,6 @@
 
         " EditorConfig plugin for Vim (http://editorconfig.org)
         Bundle 'editorconfig/editorconfig-vim'
-
-        " Generates PHP docblocks
-        " Good integratino with SirVer/ultisnips (already defined above)
-        Bundle 'tobyS/pdv'
-        
-            " Vmustache template engine, prerequisite for PDV
-            Bundle "tobyS/vmustache"
-
-            let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-            nnoremap <buffer> <C-d> :call pdv#DocumentWithSnip()<CR>
 
         " Visually displaying indent levels in code
         Bundle 'nathanaelkane/vim-indent-guides'
