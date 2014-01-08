@@ -188,6 +188,14 @@
             hi CtrlSpaceNormal   term=NONE    ctermfg=244  ctermbg=232 cterm=NONE
             hi CtrlSpaceFound    ctermfg=220  ctermbg=NONE cterm=bold
 
+        " vim-maximizer
+        " Maximizes and restores the current window in Vim
+        Bundle 'szw/vim-maximizer'
+
+            nnoremap <silent><F4> :MaximizerToggle<CR>
+            vnoremap <silent><F4> :MaximizerToggle<CR>gv
+            inoremap <silent><F4> <C-o>:MaximizerToggle<CR>
+
         " Better file browser
         Bundle 'scrooloose/nerdtree'
         
