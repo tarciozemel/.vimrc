@@ -1,4 +1,4 @@
-" .vimrc examples: https://github.com/gmarik/vundle/wiki/Examples
+" dvimrc examples: https://github.com/gmarik/vundle/wiki/Examples
 " General configs 
 
     " UTF-8 encoding
@@ -188,11 +188,17 @@
             hi CtrlSpaceNormal   term=NONE    ctermfg=244  ctermbg=232 cterm=NONE
             hi CtrlSpaceFound    ctermfg=220  ctermbg=NONE cterm=bold
 
+        " vim-maximizer
+        " Maximizes and restores the current window
+        Bundle 'szw/vim-maximizer'
+
+            let g:maximizer_default_mapping_key = '<F4>'
+
         " Better file browser
         Bundle 'scrooloose/nerdtree'
         
             " NERDTree toggle
-            map <F3> :NERDTreeToggle<CR>
+            map <silent><F3> :NERDTreeToggle<CR>
 
             " Ignore files on NERDTree
             let NERDTreeIgnore = ['\.git/', 'node_modules/', '\.pyc$', '\.pyo$', '\.tags$'] 
