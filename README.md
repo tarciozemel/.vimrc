@@ -6,7 +6,7 @@ Meu arquivo **.vimrc**.
 Dentre as opções para instalação simples de plugins, preferi o **Vundle**. 
 Então, se quiser dar uma testada nas minhas configurações, primeiro 
 [acesse o repo do Vundle](https://github.com/gmarik/vundle), instale e rode 
-`vim +BundleClean +BundleInstall! +qall` no terminal, conforme consta nas 
+`vim +PluginInstall +qall` no terminal, conforme consta nas 
 próprias instruções do Vundle (na verdade, não precisa colocar aquela codaiada 
 que ele mostra porque muita coisa já consta aqui).
 
