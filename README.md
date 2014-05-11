@@ -32,12 +32,27 @@ olhadinha nas configurações e plugins para não instalar coisa que você não
 quer/precisa usar. O arquivo está relativamente bem comentado e, na dúvida, há 
 sempre o link para a página do respectivo plugin e/ou URL com maiores explicações.
 
-**YouCompleteMe** exige alguns passos adicionais para funcionar apropriadamente, 
-então [leia todas instruções](https://github.com/Valloric/YouCompleteMe#youcompleteme-a-code-completion-engine-for-vim).
+**Taggatron** precisa trabalha com arquivos de tags, então é preciso gerá-los de 
+alguma maneira - por exemplo, com [exuberant-ctags](http://ctags.sourceforge.net/). 
+Também, esteja certo sobre quais diretórios quer buscar para a criação do arquivo 
+de tags; se estiver usando algum task runner, não é difícil ter arquivos de 1GB (!) e 
+isso pode comprometer a fluidez do Vim... Aqui está um exemplo de configuração 
+que mostra como é possível excluir alguns diretórios:
 
-O **Eclim** não é instalado exatamente da mesma maneira que os outros plugins 
+```javascript
+let g:tagcommands = {
+    \"php" : { "tagfile" : ".php.tags", "args" : "-R" },
+    \"javascript" : { "tagfile" : ".js.tags", "args" : "-R --exclude=node_modules" }
+\}
+```
+
+**Eclim** não é instalado exatamente da mesma maneira que os outros plugins 
 (emboras as configurações existentes neste `.vimrc` sejam válidas); [consulte as 
 instruções de instalação](http://eclim.org/install.html).
+
+**WakaTime** é o plugin de um serviço de mesmo nome que serve para marcar o tempo 
+em que se fica trabalhando em projetos. Para mais informações e para gerar a chave 
+necessária para usar o plugin, vá ao [site oficial do WakaTime](https://wakatime.com/).
 
 ## A gente se vê pela web!
 

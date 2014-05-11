@@ -1,4 +1,4 @@
-" dvimrc examples: https://github.com/gmarik/vundle/wiki/Examples
+" .vimrc examples: https://github.com/gmarik/vundle/wiki/Examples
 " General configs 
 
     " UTF-8 encoding
@@ -92,9 +92,40 @@
     " http://stackoverflow.com/a/4331812/922143
     set dir=~/.vim/swap//,/tmp//,.
 
-    " Ctrl+o to autocomplete according the file type
-    setlocal omnifunc=syntaxcomplete#Complete
-    set cot+=menuone
+    " Autocomplete
+    " http://blog.millermedeiros.com/vim-css-complete/
+        set infercase
+        set completeopt=longest,menuone
+        set omnifunc=syntaxcomplete#Complete
+        set completefunc=syntaxcomplete#Complete
+        set complete=.,w,b,U,t,i,d
+
+        augroup omni_complete
+            " clear commands before resetting
+            autocmd!
+
+            " Enable omnicomplete for supported filetypes
+            autocmd FileType css,scss,sass setlocal omnifunc=csscomplete#CompleteCSS
+            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+        augroup END
+
+        " Remap code completion to Ctrl+Space
+        inoremap <Nul> <C-x><C-o>
+
+    " .twig files with .html syntax highlight
+    au BufRead,BufNewFile *.twig setfiletype html
+
+
+
+
+
+
+
+
+
 
     " General commands
     " To create commands: http://stackoverflow.com/questions/2001190/adding-a-command-to-vim
@@ -107,6 +138,9 @@
 
         " Tabs to spaces
         command Tabs2Spaces execute ':1,$s/\t/  /g'
+
+        " 2 spaces to 4 spaces
+        command TwoSpaces2FourSpaces execute ':%s/^\s*/&&/g'
 
     " Maps/remaps
         
@@ -161,11 +195,12 @@
 
         " Tag file manager for Vim
         " Need to install Exuberant Ctags (sudo apt-get install exuberant-ctags)
-        Bundle 'joonty/vim-taggatron'
+        "Bundle 'joonty/vim-taggatron'
 
-            let g:tagcommands = {
-                \"php" : { "tagfile" : ".php.tags", "args" : "-R" }
-            \}
+            "let g:tagcommands = {
+                "\"php" : { "tagfile" : ".php.tags", "args" : "-R" },
+                "\"javascript" : { "tagfile" : ".js.tags", "args" : "-R --exclude=node_modules" }
+            "\}
 
         " quoting/parenthesizing made simple
         Bundle 'tpope/vim-surround'
@@ -201,7 +236,7 @@
             map <silent><F3> :NERDTreeToggle<CR>
 
             " Ignore files on NERDTree
-            let NERDTreeIgnore = ['\.git/', 'node_modules/', '\.pyc$', '\.pyo$', '\.tags$'] 
+            let NERDTreeIgnore = ['\.git[[dir]]', 'node_modules[[dir]]', '\.pyc$', '\.pyo$', '\.tags$'] 
             
             " NERDTree and tabs together in Vim, painlessly
             Bundle 'jistr/vim-nerdtree-tabs'
@@ -243,13 +278,6 @@
         " Pairs of handy bracket mappings
         Bundle 'tpope/vim-unimpaired'
         
-        " YouCompleteMe
-        " A code-completion engine for Vim
-        Bundle 'Valloric/YouCompleteMe'
-
-            " Auto closing preview window when accept offered completion string
-            let g:ycm_autoclose_preview_window_after_completion = 1
-
         " UltiSnips
         " An implementation of TextMates Snippets for the Vim Text Editor
         Bundle 'SirVer/ultisnips'
@@ -267,13 +295,16 @@
         " The power of Eclipse in your favorite editor
         " http://eclim.org/
 
-            filetype plugin indent on
+            "filetype plugin indent on
             let g:EclimCompletionMethod      = 'omnifunc'
             let g:EclimPhpSearchSingleResult = 'tabnew'
             let g:EclimPhpValidate           = 0
 
+        Bundle 'StanAngeloff/php.vim'
+
         " phpcomplete.vim
         " Improved PHP omnicompletion
+        " PHP syntax file (5.3, 5.4 & 5.5 support)
         Bundle 'shawncplus/phpcomplete.vim'
 
             let g:phpcomplete_parse_docblock_comments = 1
@@ -342,5 +373,8 @@
         " filtering and alignment
         " https://github.com/vim-scripts/Tabular
         Bundle 'Tabular'
+
+        " Time tracking for programmers
+        Bundle 'wakatime/vim-wakatime'
 
     filetype plugin on  " required!
