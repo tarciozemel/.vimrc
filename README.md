@@ -18,8 +18,9 @@ caso esteja usando um ambiente diferente.
 ## Cores e fontes
 
 Caso o esquema de cor **Molokai** não entre em ação automaticamente, basta 
-executar `cp ~/.vim/bundle/molokai/colors/molokai.vim ~/.vim/colors/molokai.vim` 
-e o problema está resolvido.
+executar:
+
+`mkdir -p ~/.vim/colors && cp ~/.vim/bundle/molokai/colors/molokai.vim ~/.vim/colors/molokai.vim`
 
 Para o **vim-airline** ficar com uma aparência melhor, é interessante instalar as 
 fontes personalizadas recomendadas. Dê uma olhada 

@@ -169,33 +169,26 @@
         cab Q q
 
 " Vundle
-" vim +BundleClean +BundleInstall! +qall (in CLI) - Install configured bundles
-"
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE : comments after Bundle command are not allowed.
 
     set nocompatible    " be iMproved
-    filetype off        " required!
+    filetype off        " require
 
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    " alternatively, pass a path where Vundle should install plugins
+    "call vundle#begin('~/some/path/here')
 
     " required! 
-    Bundle 'gmarik/vundle'
+    Plugin 'gmarik/Vundle.vim'
 
-    " Bundles from GitHub repos
+    " Plugins from GitHub repos
         
         " Themes
-        Bundle 'tomasr/molokai'
+        Plugin 'tomasr/molokai'
 
         " Tag file manager for Vim
         " Need to install Exuberant Ctags (sudo apt-get install exuberant-ctags)
-        "Bundle 'joonty/vim-taggatron'
+        "Plugin 'joonty/vim-taggatron'
 
             "let g:tagcommands = {
                 "\"php" : { "tagfile" : ".php.tags", "args" : "-R" },
@@ -203,18 +196,18 @@
             "\}
 
         " quoting/parenthesizing made simple
-        Bundle 'tpope/vim-surround'
+        Plugin 'tpope/vim-surround'
 
         " Emmet for vim
-        Bundle 'mattn/emmet-vim'
+        Plugin 'mattn/emmet-vim'
 
         " Emmet LiveStyle for Vim
         " (in apt-get based OSs: sudo apt-get install golang-go)
-        "Bundle 'mattn/livestyle-vim'
+        "Plugin 'mattn/livestyle-vim'
 
         " Vim-CtrlSpace
         " Vim Workspace Controller
-        Bundle 'szw/vim-ctrlspace'
+        Plugin 'szw/vim-ctrlspace'
 
             let g:airline_exclude_preview = 1
             let g:ctrlspace_ignored_files = '\v(tmp|temp|node_modules|components|wp-admin|wp-includes)[\/]'
@@ -225,12 +218,12 @@
 
         " vim-maximizer
         " Maximizes and restores the current window
-        Bundle 'szw/vim-maximizer'
+        Plugin 'szw/vim-maximizer'
 
             let g:maximizer_default_mapping_key = '<F4>'
 
         " Better file browser
-        Bundle 'scrooloose/nerdtree'
+        Plugin 'scrooloose/nerdtree'
         
             " NERDTree toggle
             map <silent><F3> :NERDTreeToggle<CR>
@@ -239,13 +232,13 @@
             let NERDTreeIgnore = ['\.git[[dir]]', 'node_modules[[dir]]', '\.pyc$', '\.pyo$', '\.tags$'] 
             
             " NERDTree and tabs together in Vim, painlessly
-            Bundle 'jistr/vim-nerdtree-tabs'
+            Plugin 'jistr/vim-nerdtree-tabs'
 
                 let NERDTreeShowHidden=1
                 let g:nerdtree_tabs_focus_on_files=1
   
-        " Vim plugin for intensely orgasmic commenting 
-        Bundle 'scrooloose/nerdcommenter'
+        " Vim Plugin for intensely orgasmic commenting 
+        Plugin 'scrooloose/nerdcommenter'
 
             " Overwrite SCSS comment stlye to '// '
             let g:NERDCustomDelimiters = {
@@ -253,10 +246,10 @@
             \ }
 
         " True Sublime Text style multiple selections for Vim 
-        Bundle 'terryma/vim-multiple-cursors'
+        Plugin 'terryma/vim-multiple-cursors'
         
         " Lean & mean statusline for vim that's light as air
-        Bundle 'bling/vim-airline'
+        Plugin 'bling/vim-airline'
 
             let g:airline_powerline_fonts = 1
 
@@ -267,7 +260,7 @@
             let g:airline#extensions#branch#empty_message = ''
 
         " A Git wrapper so awesome
-        Bundle 'tpope/vim-fugitive'
+        Plugin 'tpope/vim-fugitive'
 
             " If Fugitive loaded, show branch in statusline
             set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
@@ -276,11 +269,11 @@
             autocmd BufReadPost fugitive://* set bufhidden=delete
 
         " Pairs of handy bracket mappings
-        Bundle 'tpope/vim-unimpaired'
+        Plugin 'tpope/vim-unimpaired'
         
         " UltiSnips
         " An implementation of TextMates Snippets for the Vim Text Editor
-        Bundle 'SirVer/ultisnips'
+        Plugin 'SirVer/ultisnips'
 
             let g:UltiSnipsEditSplit   = 'horizontal'
             let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
@@ -295,23 +288,23 @@
         " The power of Eclipse in your favorite editor
         " http://eclim.org/
 
-            "filetype plugin indent on
+            "filetype Plugin indent on
             let g:EclimCompletionMethod      = 'omnifunc'
             let g:EclimPhpSearchSingleResult = 'tabnew'
             let g:EclimPhpValidate           = 0
 
-        Bundle 'StanAngeloff/php.vim'
+        Plugin 'StanAngeloff/php.vim'
 
         " phpcomplete.vim
         " Improved PHP omnicompletion
         " PHP syntax file (5.3, 5.4 & 5.5 support)
-        Bundle 'shawncplus/phpcomplete.vim'
+        Plugin 'shawncplus/phpcomplete.vim'
 
             let g:phpcomplete_parse_docblock_comments = 1
 
         " vim-php-namespace
         " Types 'use' statements for you
-        Bundle 'arnaud-lb/vim-php-namespace'
+        Plugin 'arnaud-lb/vim-php-namespace'
 
             " hitting <leader>u  will import the class under the cursor
             inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
@@ -324,7 +317,7 @@
         " PHP QA
         " Using this while Syntastic not working
         " https://github.com/scrooloose/syntastic/issues/780
-        Bundle 'joonty/vim-phpqa'
+        Plugin 'joonty/vim-phpqa'
 
             let g:phpqa_open_loc = 0 
             command! PhpqaErrorsWindow lop
@@ -334,19 +327,19 @@
 
         " Auto Pairs
         " Insert or delete brackets, parens, quotes in pair
-        Bundle 'jiangmiao/auto-pairs'
+        Plugin 'jiangmiao/auto-pairs'
 
         " Vim runtime files for Haml, Sass, and SCSS
-        Bundle 'tpope/vim-haml'
+        Plugin 'tpope/vim-haml'
 
         " vim syntax for LESS
-        "Bundle 'groenewege/vim-less'
+        "Plugin 'groenewege/vim-less'
 
-        " EditorConfig plugin for Vim (http://editorconfig.org)
-        Bundle 'editorconfig/editorconfig-vim'
+        " EditorConfig Plugin for Vim (http://editorconfig.org)
+        Plugin 'editorconfig/editorconfig-vim'
 
         " Visually displaying indent levels in code
-        Bundle 'nathanaelkane/vim-indent-guides'
+        Plugin 'nathanaelkane/vim-indent-guides'
 
             let g:indent_guides_enable_on_vim_startup = 1
             let g:indent_guides_guide_size = 1
@@ -357,24 +350,36 @@
             autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=234
             autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=234
 
-        " A Vim plugin which shows a git diff in the gutter (sign column)
-        Bundle 'airblade/vim-gitgutter'
+        " A Vim Plugin which shows a git diff in the gutter (sign column)
+        Plugin 'airblade/vim-gitgutter'
 
-    " Bundles from vim-scripts repos
+    " Plugins from vim-scripts repos
 
         " General utility functions
         " https://github.com/vim-scripts/genutils
-        Bundle 'genutils' 
+        Plugin 'genutils' 
 
         " Search results counter
         " https://github.com/vim-scripts/IndexedSearch
-        Bundle 'IndexedSearch'
+        Plugin 'IndexedSearch'
 
         " filtering and alignment
         " https://github.com/vim-scripts/Tabular
-        Bundle 'Tabular'
+        Plugin 'Tabular'
 
         " Time tracking for programmers
-        Bundle 'wakatime/vim-wakatime'
+        Plugin 'wakatime/vim-wakatime'
 
-    filetype plugin on  " required!
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
