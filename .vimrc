@@ -1,3 +1,5 @@
+source ~/.vim/plugins.vim
+
 " .vimrc examples: https://github.com/gmarik/vundle/wiki/Examples
 " General configs 
 
@@ -162,6 +164,3 @@
         cab WQ wq
         cab W w
         cab Q q
-
-" Vundle
-source ~/.vim/plugins.vim

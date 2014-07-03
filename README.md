@@ -9,13 +9,15 @@ ele consta como um
 deste repositório para ser instalado mais facilmente.
 
 Basicamente, o que você tem que fazer é clonar este repo no seu diretório 
-`~/.vim`; iniciar os submódulo; instalar os plugins e; criar um link simbólico 
-do arquivo `.vimrc` do repositório diretamente para seu `$HOME`:
+`~/.vim` (se ainda não existir, crie); iniciar os submódulo; criar um link 
+simbólico do arquivo `.vimrc` deste repositório clonado diretamente para seu 
+`$HOME` e; instalar os plugins (o que vai demorar uns minutinhos):
 
 ``` bash
 cd $HOME/.vim
 git clone https://github.com/tarciozemel/.vimrc .
 git submodule init && git submodule update
+ln -s ~/.vim/.vimrc ~/.vimrc
 vim +PluginInstall +qall
 ```
 
