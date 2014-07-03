@@ -118,15 +118,6 @@
     " .twig files with .html syntax highlight
     au BufRead,BufNewFile *.twig setfiletype html
 
-
-
-
-
-
-
-
-
-
     " General commands
     " To create commands: http://stackoverflow.com/questions/2001190/adding-a-command-to-vim
 
@@ -146,6 +137,10 @@
         
         " Fix the backspace key
         se bs=2
+
+        " Paste multiple times
+        " http://stackoverflow.com/questions/7163947/vim-paste-multiple-times
+        xnoremap p pgvy
 
         " Sort selected lines
         vnoremap <F9> :sort<CR>
@@ -167,6 +162,15 @@
         cab WQ wq
         cab W w
         cab Q q
+
+
+
+
+
+
+
+
+
 
 " Vundle
 
@@ -210,7 +214,7 @@
         Plugin 'szw/vim-ctrlspace'
 
             let g:airline_exclude_preview = 1
-            let g:ctrlspace_ignored_files = '\v(tmp|temp|node_modules|components|wp-admin|wp-includes)[\/]'
+            let g:ctrlspace_ignored_files = '\v(tmp|temp|cache|node_modules|components|wp-admin|wp-includes)[\/]'
 
             hi CtrlSpaceSelected term=reverse ctermfg=187  ctermbg=23  cterm=bold
             hi CtrlSpaceNormal   term=NONE    ctermfg=244  ctermbg=232 cterm=NONE
@@ -229,7 +233,14 @@
             map <silent><F3> :NERDTreeToggle<CR>
 
             " Ignore files on NERDTree
-            let NERDTreeIgnore = ['\.git[[dir]]', 'node_modules[[dir]]', '\.pyc$', '\.pyo$', '\.tags$'] 
+            let NERDTreeIgnore = [
+                \'\.git[[dir]]',
+                \'\.sass-cache[[dir]]',
+                \'node_modules[[dir]]',
+                \'\.pyc$',
+                \'\.pyo$',
+                \'\.tags$'
+            \] 
             
             " NERDTree and tabs together in Vim, painlessly
             Plugin 'jistr/vim-nerdtree-tabs'
@@ -289,9 +300,9 @@
         " http://eclim.org/
 
             "filetype Plugin indent on
-            let g:EclimCompletionMethod      = 'omnifunc'
-            let g:EclimPhpSearchSingleResult = 'tabnew'
-            let g:EclimPhpValidate           = 0
+            "let g:EclimCompletionMethod      = 'omnifunc'
+            "let g:EclimPhpSearchSingleResult = 'tabnew'
+            "let g:EclimPhpValidate           = 0
 
         Plugin 'StanAngeloff/php.vim'
 
@@ -317,12 +328,12 @@
         " PHP QA
         " Using this while Syntastic not working
         " https://github.com/scrooloose/syntastic/issues/780
-        Plugin 'joonty/vim-phpqa'
+        "Plugin 'joonty/vim-phpqa'
 
-            let g:phpqa_open_loc = 0 
-            command! PhpqaErrorsWindow lop
+            "let g:phpqa_open_loc = 0 
+            "command! PhpqaErrorsWindow lop
 
-            let g:phpqa_codesniffer_args     = "--standard=PSR2 --ignore=*/node_modules/*"
+            "let g:phpqa_codesniffer_args     = "--standard=PSR2 --ignore=*/node_modules/*"
             "let g:phpqa_messdetector_ruleset = "cleancode,codesize,design,unusedcode"
 
         " Auto Pairs
