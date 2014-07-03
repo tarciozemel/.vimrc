@@ -3,17 +3,25 @@
 
 Meu arquivo **.vimrc**. 
 
-Dentre as opções para instalação simples de plugins, preferi o **Vundle**. 
-Então, se quiser dar uma testada nas minhas configurações, primeiro 
-[acesse o repo do Vundle](https://github.com/gmarik/vundle), instale e rode 
-`vim +PluginInstall +qall` no terminal, conforme consta nas 
-próprias instruções do Vundle (na verdade, não precisa colocar aquela codaiada 
-que ele mostra porque muita coisa já consta aqui).
+Dentre as opções para instalação simples de plugins, preferi o **Vundle**. Então, 
+ele consta como um 
+[submódulo](http://git-scm.com/book/pt-br/Ferramentas-do-Git-Subm%C3%B3dulos) 
+deste repositório para ser instalado mais facilmente.
 
-E, só de falar em "terminal", você já deve ter percebido que é um arquivo feito 
-e voltado para ambientes \*NIX (e não testado em outros ambientes). Então, faça 
-uma revisão geral em todas as configurações para ver o que você deve alterar, 
-caso esteja usando um ambiente diferente.
+Basicamente, o que você tem que fazer é clonar este repo no seu diretório 
+`~/.vim`; iniciar os submódulo; instalar os plugins e; criar um link simbólico 
+do arquivo `.vimrc` do repositório diretamente para seu `$HOME`:
+
+``` bash
+cd $HOME/.vim
+git clone https://github.com/tarciozemel/.vimrc .
+git submodule init && git submodule update
+vim +PluginInstall +qall
+```
+
+Este é repo feito, testado e voltado para ambientes \*NIX (e não testado em 
+outros ambientes). Então, faça uma revisão geral em todas as configurações caso 
+esteja usando um ambiente diferente.
 
 ## Cores e fontes
 
@@ -32,6 +40,11 @@ Antes de usar esse `.vimrc` e mexer no Vim como se não houvesse amanhã, dê um
 olhadinha nas configurações e plugins para não instalar coisa que você não 
 quer/precisa usar. O arquivo está relativamente bem comentado e, na dúvida, há 
 sempre o link para a página do respectivo plugin e/ou URL com maiores explicações.
+
+Também pode acontecer o contrário: você querer usar algo que está comentado (caso 
+em que basta descomentar e executar `:BundleInstall` no Modo de Comando do Vim).
+
+Algumas observações pertinentes quanto a plugins:
 
 **Taggatron** precisa trabalha com arquivos de tags, então é preciso gerá-los de 
 alguma maneira - por exemplo, com [exuberant-ctags](http://ctags.sourceforge.net/). 
