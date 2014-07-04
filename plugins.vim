@@ -10,9 +10,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins from GitHub repos
-    
-    " Themes
-    Plugin 'tomasr/molokai'
 
     " Tag file manager for Vim
     " Need to install Exuberant Ctags (sudo apt-get install exuberant-ctags)
