@@ -21,7 +21,7 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 vim +PluginInstall +qall
 ```
 
-Este é repo feito, testado e voltado para ambientes \*NIX (e não testado em 
+Este repo é feito, testado e voltado para ambientes \*NIX (e não testado em 
 outros ambientes). Então, faça uma revisão geral em todas as configurações caso 
 esteja usando um ambiente diferente.
 
@@ -44,7 +44,7 @@ quer/precisa usar. O arquivo está relativamente bem comentado e, na dúvida, h�
 sempre o link para a página do respectivo plugin e/ou URL com maiores explicações.
 
 Também pode acontecer o contrário: você querer usar algo que está comentado (caso 
-em que basta descomentar e executar `:BundleInstall` no Modo de Comando do Vim).
+em que basta descomentar e executar `:PluginInstall` no Modo de Comando do Vim).
 
 Algumas observações pertinentes quanto a plugins:
 
