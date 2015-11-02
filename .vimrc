@@ -60,7 +60,7 @@ source ~/.vim/plugins.vim
  
     " Line length marker
     " http://superuser.com/a/249856
-    set colorcolumn=80
+    set colorcolumn=100
 
     " Highlight actual line
     "set cursorline
