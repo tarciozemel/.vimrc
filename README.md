@@ -72,6 +72,6 @@ necessária para usar o plugin, vá ao [site oficial do WakaTime](https://wakati
 
 ## A gente se vê pela web!
 
-Se tiver sugestões/dicas/comentários, por favor, entre em contato: [gplus.to/tarciozemel](http://gplus.to/tarciozemel). ;-)
+Se tiver sugestões/dicas/comentários: [manda um tweet](https://twitter.com/tarciozemel). ;-)
 
 Abraços e a gente se vê pela web!
